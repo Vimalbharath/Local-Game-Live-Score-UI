@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.points-table {
+  width: 100%;
+  /* Make table fill available width */
+  margin: 20px auto;
+  /* Add some margin for spacing */
+  border-collapse: collapse;
+  /* Remove borders between cells */
+  background-color: #f2f2f2;
+  /* Light gray background */
+}
+
+.points-table th,
+.points-table td {
+  text-align: left;
+  /* Align content left */
+  padding: 8px;
+  /* Add padding for readability */
+  border: 1px solid #ddd;
+  /* Thin border for rows and columns */
+  font-family: Arial, sans-serif;
+  /* Use a standard font */
+}
+
+.points-table thead th {
+  background-color: #e0e0e0;
+  /* Darker gray background for header */
+  color: #333;
+  /* Darker color for text */
+  text-transform: uppercase;
+  /* Convert text to uppercase */
+}
+
+.matches-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.matches-table th,
+.matches-table td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.matches-table thead th {
+  background-color: #e0e0e0;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.match-details {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.match-details h4 {
+  margin-bottom: 5px;
+}
+
+
