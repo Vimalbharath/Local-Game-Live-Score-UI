@@ -1,19 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { bookApi } from '../misc/BookApi'
+import { useAuth } from '../context/AuthContext'
 
-const url = 'http://localhost:8080/api/public/teams';
+const url = 'http://localhost:8080/api/admin/teams';
 
 const Teams = () => {
+  const Auth = useAuth()
+  const user = Auth.getUser()
+  
   const [teams, setTeams] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(null); // Track selected team
 
-  const getUsers = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setTeams(data);
-  };
+  const handleGetTeams = async () => {
+   // try {
+      //setIsUsersLoading(true)
+      const response = await bookApi.getTeams(user)
+      const teams = response.data
+      setTeams(teams)
+    // } catch (error) {
+    //   handleLogError(error)
+    // } finally {
+    //   setIsUsersLoading(false)
+    // }
+  }
 
   useEffect(() => {
-    getUsers();
+    handleGetTeams();
   }, []);
 
   const handleTeamClick = (team) => {

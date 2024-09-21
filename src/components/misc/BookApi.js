@@ -10,7 +10,9 @@ export const bookApi = {
   deleteUser,
   getBooks,
   deleteBook,
-  addBook
+  addBook,
+  getTeams,
+  addTeam
 }
 
 function authenticate(username, password) {
@@ -40,6 +42,12 @@ function getUsers(user, username) {
   })
 }
 
+function getTeams(user) {
+  return instance.get('/api/admin/teams', {
+    headers: { 'Authorization': basicAuth(user) }
+  })
+}
+
 function deleteUser(user, username) {
   return instance.delete(`/api/users/${username}`, {
     headers: { 'Authorization': basicAuth(user) }
@@ -61,6 +69,14 @@ function deleteBook(user, isbn) {
 
 function addBook(user, book) {
   return instance.post('/api/books', book, {
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': basicAuth(user)
+    }
+  })
+}
+function addTeam(user, team) {
+  return instance.post('/api/admin/team', team, {
     headers: {
       'Content-type': 'application/json',
       'Authorization': basicAuth(user)
