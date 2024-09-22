@@ -14,7 +14,8 @@ export const bookApi = {
   getTeams,
   addTeam,
   addPlayer,
-  addTeaminPoint
+  addTeaminPoint,
+  addMatch
 }
 
 function authenticate(username, password) {
@@ -44,10 +45,8 @@ function getUsers(user, username) {
   })
 }
 
-function getTeams(user) {
-  return instance.get('/api/admin/teams', {
-    headers: { 'Authorization': basicAuth(user) }
-  })
+function getTeams() {
+  return instance.get('/api/public/teams')
 }
 
 function deleteUser(user, username) {
@@ -95,6 +94,15 @@ function addTeaminPoint(user,team, teamid) {
 }
 function addPlayer(user, team,teamid) {
   return instance.post(`/api/captain/player/${teamid}`, team, {
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': basicAuth(user)
+    }
+  })
+}
+
+function addMatch(user, match,team1id,team2id) {
+  return instance.post(`/api/admin/match/${team1id}/${team2id}`, team, {
     headers: {
       'Content-type': 'application/json',
       'Authorization': basicAuth(user)

@@ -14,7 +14,7 @@ const Teams = () => {
   const handleGetTeams = async () => {
    // try {
       //setIsUsersLoading(true)
-      const response = await bookApi.getTeams(user)
+      const response = await bookApi.getTeams()
       const teams = response.data
       setTeams(teams)
     // } catch (error) {
