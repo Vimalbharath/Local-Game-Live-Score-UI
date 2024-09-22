@@ -102,7 +102,7 @@ function addPlayer(user, team,teamid) {
 }
 
 function addMatch(user, match,team1id,team2id) {
-  return instance.post(`/api/admin/match/${team1id}/${team2id}`, team, {
+  return instance.post(`/api/admin/match/${team1id}/${team2id}`, match, {
     headers: {
       'Content-type': 'application/json',
       'Authorization': basicAuth(user)

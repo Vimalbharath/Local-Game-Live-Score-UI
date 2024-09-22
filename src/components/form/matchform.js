@@ -60,7 +60,7 @@ const Matchform = () => {
           onChange={(e) => setTeam2id(e.target.value)}
           placeholder="Enter team2id"
         />
-        <button onClick={handleAddMatch}>Add Team</button>
+        <button onClick={handleAddMatch}>Add Match</button>
       </div>
       {errorMessage && <p>{errorMessage}</p>}
     </div>

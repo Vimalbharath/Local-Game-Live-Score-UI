@@ -6,6 +6,7 @@ import Details from './details'; // Import Players component
 import Points from './points copy'; // Import Points component
 import Teamsform from '../form/teamsform';
 import PlayerForm from '../form/playerform';
+import Matchform from '../form/matchform';
 
 const Vimal = () => {
 
@@ -26,6 +27,7 @@ const Vimal = () => {
         <button className={activeTab === 'points' ? 'active' : ''} onClick={() => handleTabClick('points')}>Points</button>
         <button className={activeTab === 'teamsform' ? 'active' : ''} onClick={() => handleTabClick('teamsform')}>Teamsform</button>
         <button className={activeTab === 'playerform' ? 'active' : ''} onClick={() => handleTabClick('playerform')}>PlayerForm</button>
+        <button className={activeTab === 'matchform' ? 'active' : ''} onClick={() => handleTabClick('matchform')}>Matchform</button>
       </nav>
       <main>
         {activeTab === 'teams' && <Team />}  {/* Render Team component when 'teams' is active */}
@@ -35,6 +37,7 @@ const Vimal = () => {
         {activeTab === 'points' && <Points />}  {/* Render Points component when 'points' is active */}
         {activeTab === 'teamsform' && <Teamsform />}
          {activeTab === 'playerform' && <PlayerForm />}
+          {activeTab === 'matchform' && <Matchform />}
       </main>
     </div>
   );
