@@ -55,7 +55,7 @@ const Teamsform = () => {
         return
       }
       await bookApi.addTeam(user, team)
-      //await bookApi.addTeaminPoint(user,team.teamid);
+      await bookApi.addTeaminPoint(user,team,team.teamid);
       alert("Team added");
     //   clearBookForm()
     //   await handleGetBooks()
@@ -74,7 +74,7 @@ const Teamsform = () => {
       </ul> */}
       <div>
         <input
-          type="text"
+          type="number"
           value={newTeamId}
           onChange={(e) => setNewTeamId(e.target.value)}
           placeholder="Enter new team Id"

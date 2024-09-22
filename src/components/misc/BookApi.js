@@ -85,10 +85,10 @@ function addTeam(user, team) {
     }
   })
 }
-function addTeaminPoint(user, teamid) {
-  return instance.post(`/api/admin/point/${teamid}`, {
+function addTeaminPoint(user,team, teamid) {
+  return instance.post(`/api/admin/point/${teamid}`,team, {
     headers: {
-      //'Content-type': 'application/json',
+      'Content-type': 'application/json',
       'Authorization': basicAuth(user)
     }
   })
