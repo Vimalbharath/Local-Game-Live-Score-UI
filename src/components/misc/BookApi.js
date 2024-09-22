@@ -15,7 +15,10 @@ export const bookApi = {
   addTeam,
   addPlayer,
   addTeaminPoint,
-  addMatch
+  addMatch,
+  addMatchinDetails,
+  addDetails,
+  addDetailsPoint,
 }
 
 function authenticate(username, password) {
@@ -86,6 +89,30 @@ function addTeam(user, team) {
 }
 function addTeaminPoint(user,team, teamid) {
   return instance.post(`/api/admin/point/${teamid}`,team, {
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': basicAuth(user)
+    }
+  })
+}
+function addMatchinDetails(user,details, matchid) {
+  return instance.post(`/api/admin/details/${matchid}`,details, {
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': basicAuth(user)
+    }
+  })
+}
+function addDetails(user,details, detailsid,teamid,playerid,tossWinner,innings1Score,innings2Score) {
+  return instance.put(`/api/admin/details/${detailsid}/${teamid}/${playerid}/?toss=${tossWinner}&innings1Score=${innings1Score}&innings2Score=${innings2Score}`,details, {
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': basicAuth(user)
+    }
+  })
+}
+function addDetailsPoint(user,details, detailsid) {
+  return instance.put(`/api/admin/updatepoints/${detailsid}`,details, {
     headers: {
       'Content-type': 'application/json',
       'Authorization': basicAuth(user)
